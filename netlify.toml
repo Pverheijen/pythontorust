@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "zola build"
+command = "zola build && npx postcss css/style.css -o public/css/style.css"
 # "zola build && npx postcss css/style.css -o public/css/style.css" 
 # "zola build"
 # && postcss public/css/style.css -o public/css/style.min.css"
