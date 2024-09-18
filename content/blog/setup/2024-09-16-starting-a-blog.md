@@ -35,7 +35,7 @@ During the programme, I started out learning front-end basics such as HTML, Java
 
 I still have an old photo on my LinkedIn from the 2016 Turing Society group.
 
-![Turing Society: Class of 2016](turing-society-2016.JPG)
+![Turing Society: Class of 2016](../../../turing-society-2016.JPG)
 
 
 # Enough reminiscing, time for something new

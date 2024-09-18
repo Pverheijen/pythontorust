@@ -23,7 +23,7 @@ rustc --version
 
 Rust seems to have been installed properly.
 
-![Rust version call works in Git Bash text](rust-installed.JPG)
+![Rust version call works in Git Bash text](../../../rust-installed.JPG)
 
 
 Apparently you can also uninstall rust in the CLI b y running:
