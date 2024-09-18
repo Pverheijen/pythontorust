@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "${ZOLA_BASE_URL}"
+base_url = "https://pythontorust.netlify.app/"
 
 # The site title and description; used in feeds by default.
 title = "boring"
