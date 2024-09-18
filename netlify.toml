@@ -1,23 +1,9 @@
 [build]
-command = "npm run build && npm run postbuild"
+command = "yarn install --frozen-lockfile && yarn build && zola build"
 publish = "public"
-# [build]
-# publish = "public"
-# command = "zola build && npx postcss css/style.css -o public/css/style.css"
-# # "zola build && npx postcss css/style.css -o public/css/style.css" 
-# # "zola build"
-# # && postcss public/css/style.css -o public/css/style.min.css"
 
 [build.environment]
 ZOLA_VERSION = "0.19.2"
 
-# The magic for deploying previews of branches.
-# We need to override the base url with whatever url Netlify assigns to our
-# preview site.  We do this using the Netlify environment variable
-# `$DEPLOY_PRIME_URL`.
-
 [context.production.environment]
 ZOLA_BASE_URL = "https://pythontorust.netlify.app/"
-
-[context.deploy-preview]
-command = "zola build --base-url $DEPLOY_PRIME_URL"
