@@ -2,3 +2,6 @@ node_modules/
 public/
 *.log
 static/css/
+
+# Local Netlify folder
+.netlify
