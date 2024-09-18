@@ -1,7 +1,9 @@
 [build]
 publish = "public"
-command = "zola build" 
-#  && npx postcss css/style.css -o static/css/style.css" # && postcss public/css/style.css -o public/css/style.min.css"
+command = "zola build && npx postcss css/style.css -o public/css/style.css"
+# "zola build && npx postcss css/style.css -o public/css/style.css" 
+# "zola build"
+# && postcss public/css/style.css -o public/css/style.min.css"
 
 [build.environment]
 ZOLA_VERSION = "0.19.2"
