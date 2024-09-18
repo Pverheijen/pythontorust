@@ -1,6 +1,7 @@
 ---
 title: "Headless CMS decap CMS"
 date: 2024-09-19
+draft: true
 ---
 
 # Headless CMS

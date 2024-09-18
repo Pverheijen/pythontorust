@@ -1,6 +1,7 @@
 ---
 title: "Deploying a static website made with Zola to Netlify"
 date: 2024-09-18
+draft: true
 ---
 
 # Deployment
