@@ -40,11 +40,12 @@ To host my articles, I've decided to set up a static website. Since I’m learni
 
 ## A Static Website Framework
 
-I'm somewhat familiar with the [JAMstack](https://jamstack.org/), which stands for JavaScript, APIs, and Markdown—a concept that gained popularity through platforms like Netlify. The idea of static website is appealing. It's an easy and cheap way to deploy a simple website such as a blog. 
+I'm somewhat familiar with the [JAMstack](https://jamstack.org/), which stands for JavaScript, APIs, and Markdown—a concept that gained popularity through platforms like Netlify. The idea of a static website is appealing. It's an easy and cheap way to deploy a simple website such as a blog. 
 
-After some research, I found **Zola**, a static site generator written in Rust, which seems to be the equivalent of Hugo for Rust users.
+After some research, I found **Zola**, a static site generator written in Rust, which seems to be the comparable for as Rust as Hugo for for Golang users.
 
 # Installing Zola on Windows
+
 Following [this](https://www.getzola.org/documentation/getting-started/installation/) website, I followed the Windows installation instructions using Chocolatey.
 
 Small sidenote: I did have to run Git Bash as administrator in order to get it to install.
@@ -54,3 +55,53 @@ Small sidenote: I did have to run Git Bash as administrator in order to get it t
 ```bash
 zola init PythonToRust
 ```
+
+Following the documentation you get a pretty basic website. 
+It's pretty straightforward and I did not run into any surprises.
+You'll end up with something like this if you've followed the documentation on getting started:
+
+![Folder structure after following the documentation on getting started](../../../starter-layout.jpg)
+
+We can build and run the website by running the following commands:
+
+```bash
+zola build
+zola serve
+```
+
+The first thing that you notice after building and serving the website: there's no styling whatsoever.
+It's pretty barebone right now. I am, by no means, good at design nor front-end web development. 
+Let's see if we can pick a nice theme that will provide us this out of the box. 
+
+There's quite a few nice themes already provided [here](https://www.getzola.org/themes/).
+
+Visiting the website you'll see pretty much something similar to this:
+
+![Themes on the getzola.org website](../../../zola-themes.jpg)
+
+After some browsing I came across the **boring** theme that you can find [here](https://www.getzola.org/themes/boring/).
+It looks pretty simple, there's a neat little toggle for light and dark mode. It has some nice styling out of the box.
+I can work with this.
+
+# Boring: A Zola theme
+
+I've added a [link](https://boring-zola.netlify.app/) to the demo here, but I can imagine (if I don't change it too much) that this blog is a demo example as well. The [README.md](https://github.com/ssiyad/boring) suggests adding it as a git submodule under themes/boring, which makes sense to keep up to date with updates to the theme and keeping the theme separate. I, however, will be using it as a main theme and just copying the repository as is, I might change some things in the future. I can imagine changing the homepage for sure, the styling I do want to keep as is. 
+
+In order to build the CSS files, the theme makes use of yarn. I know that it's a package manager and there's another one called NPM, but much more than that I did not know. I decided to ask our new best friend to give me some simple explanations. ChatGPT mentions the following: *"Yarn and NPM are both package managers for JavaScript. They help you manage your project's dependencies (other people's code that you use to build your project). Think of them like tools that fetch and organize all the ingredients (libraries and packages) you need to cook up your app."*
+
+## Building the CSS files
+
+In order to build the CSS files the README.md advises to run the following commands:
+
+```bash
+yarn install --frozen-lockfile
+```
+
+This installs the dependencies listed in the package.json file by fetching them from the internet and putting them into the node_modules folder. This flag ensures that Yarn uses the exact versions specified in the yarn.lock file. If there’s a mismatch between the package.json and yarn.lock, Yarn will throw an error instead of updating the lockfile. It guarantees that the versions installed are exactly the ones already locked.
+
+```bash
+yarn build
+```
+
+This command typically runs a build script defined in the package.json file (under the scripts section).
+The build process could include tasks like compiling CSS, JavaScript, or other assets. This does build or css file as you can see in package.json under scripts it has defined build as: *"npx postcss css/style.css -o static/css/style.css"*. This outputs the style.css file that the theme uses for styling.

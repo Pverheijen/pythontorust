@@ -1,8 +1,8 @@
 ---
 title: "Starting a blog for learning Rust coming from Python"
 date: 2024-09-16
-description: "You have a to-do list that scrolls on for days. You are managing multiple projects, getting lots of email and messages on different messaging systems, managing finances and personal health habits and so much more."
-tags: [Primer, todo]
+description: "A little bit of background on how this blog came to be"
+tags: [getting-started, Rust, blog, autobiography]
 ---
 
 # From Python to Rust  
