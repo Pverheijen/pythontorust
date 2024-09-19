@@ -34,9 +34,9 @@ render_emoji = true
 smart_punctuation = true
 
 [extra]
-homepage_title = "Hello, I am a boring guy!"
-homepage_subtitle = "I love to sit around all day, doing nothing."
-homepage_img_url = "/homepage-img.jpg"
+homepage_title = "From Python to Rust and back"
+homepage_subtitle = "A blog on learning Rust as a Pythonista"
+homepage_img_url = "/rusty-python-3.png"
 
 # Refer https://support.google.com/analytics/answer/9539598?hl=en
 google_analytics_measurement_id = ""
