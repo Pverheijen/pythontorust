@@ -1,6 +1,8 @@
 ---
 title: "Getting started with Rust and Zola"
 date: 2024-09-17
+description: "Installing Rust and getting started with Zola, a framework for building static websites that is built with Rust"
+tags: [Rust, Zola, blog]
 ---
 
 # Let's install Rust
@@ -105,3 +107,16 @@ yarn build
 
 This command typically runs a build script defined in the package.json file (under the scripts section).
 The build process could include tasks like compiling CSS, JavaScript, or other assets. This does build or css file as you can see in package.json under scripts it has defined build as: *"npx postcss css/style.css -o static/css/style.css"*. This outputs the style.css file that the theme uses for styling.
+
+
+## Seeing it all come together
+We can start up the website again after a quick build and serve:
+
+```bash
+zola build
+zola serve
+```
+
+And the result so far (work in progress):
+
+![Showing the Boring theme of a Zola static website on localhost](../../../it-runs.JPG)
