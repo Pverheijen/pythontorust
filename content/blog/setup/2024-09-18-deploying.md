@@ -1,7 +1,6 @@
 ---
 title: "Deploying a static website made with Zola to Netlify"
 date: 2024-09-18
-draft: true
 ---
 
 # Deployment
@@ -14,7 +13,11 @@ This time, I’m interested in exploring other popular deployment options, such 
 
 Creating an account on Netlify is straightforward, the [url](https://app.netlify.com/signup) for signing up. I'm hosting [my code](https://github.com/Pverheijen/pythontorust) on [Github](https://github.com/). For this reason I'm using Github as OAuth to my Netlify account. 
 
-After logging in, you can create a new site. Since I already have a site the option to select is called "add new site" and whenever you click on this you create a new website with the following options <netlify-new-site.jpg>. If you already have your repository set up, I'd suggest importing an existing one. 
+After logging in, you can create a new site. Since I already have a site the option to select is called "add new site" and whenever you click on this you create a new website with the following options:
+
+![New site in the admin console of Netlify](../../../netlify-new-site.JPG)
+
+If you already have your repository set up, I'd suggest importing an existing one. 
 
 In order to instruct Netlify what to do, I suggest adding a netlify.toml to the root of your project to tell Netlify what the build process should look like. I've added the one for the Zola theme here.
 
@@ -58,7 +61,11 @@ I've used [Antagonist](https://www.antagonist.nl/) in the past and I'll be buyin
 
 Within Netlify you can manage your website. The name of your website will be used to generate the url to which your app is deployed. In my case this is [pythontorust.netlify.app](pythontorust.netlify.app). I'm using [www.pythontorust.nl](www.pythontorust.nl) and [pythontorust.nl](pythontorust.nl) as my domains (the latter one as the main URL).
 
-<domain-management.jpg>
+![Domain management tab on Netlify](../../../domain-management.JPG)
 
 ## Setting up A-record to Netlify
 I've followed the docs to set up the a-record on my domain registrar (Antagonist), if you run into issues here and need help, reach out to me. 
+
+It takes some time before Netlify picks up the changes in the DNS configuration of your website. This depends on the TTL (time-to-live). After this has expired and the configuration is correct, the A-record for your custom domain now correctly points to the Netlify server address [75.2.60.5]. Netlify will in the background now deploy your website to your custom domain alongside the deploying to the default netlify domain based on your website name.
+
+![DNS-records management on Antagonist](../../../antagonist-records.JPG)
