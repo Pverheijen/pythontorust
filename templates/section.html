@@ -16,7 +16,9 @@
                     Posts
                 </div>
                 <ul>
-                    {% for page in section.pages %}
+                    {% set sorted_pages = section.pages | sort_by(attribute="date", reverse=true) %}
+
+                    {% for page in sorted_pages %}
                         <li class="text-slate-900 hover:text-slate-600
                             dark:text-slate-400 hover:dark:text-slate-300
                             transition">
