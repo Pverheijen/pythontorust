@@ -3,23 +3,25 @@ title: "Deploying a static website made with Zola to Netlify"
 date: 2024-09-18
 ---
 
-# Deployment
+# Deploying My Website with Netlify
 
-For my personal website, [peterverheijen.nl](http://peterverheijen.nl), I used Hugo to build it. Hugo is a static website framework built with Go(lang). For deploying it I used an S3 bucket on Azure. There's an extension on VS Code that allows you to ship all of your files to your bucket and configure the bucket in such a way that your website url points to the files. 
+For my personal website, [peterverheijen.nl](http://peterverheijen.nl), I originally used Hugo, a static site generator built with Go. I hosted the site using an S3 bucket on Azure, with a convenient VS Code extension that allowed me to upload files to the bucket and configure the URL to serve the website directly from there.
 
-This time, I’m interested in exploring other popular deployment options, such as Netlify and Vercel. However, after reading [this discussion](https://github.com/orgs/vercel/discussions/3181), it appears there are some current issues with Vercel. Therefore, I’ll be giving Netlify a try instead.
+This time around, I wanted to explore other popular deployment platforms, specifically Netlify and Vercel. However, after reading this [this discussion](https://github.com/orgs/vercel/discussions/3181), I discovered some ongoing issues with Vercel. As a result, I decided to give Netlify a try instead.
 
-## Netlify
+## Getting Started with Netlify
 
-Creating an account on Netlify is straightforward, the [url](https://app.netlify.com/signup) for signing up. I'm hosting [my code](https://github.com/Pverheijen/pythontorust) on [Github](https://github.com/). For this reason I'm using Github as OAuth to my Netlify account. 
+Setting up a Netlify account is simple. You can sign up via this [link](https://app.netlify.com/signup). Since [my code](https://github.com/Pverheijen/pythontorust) is hosted on GitHub, I used GitHub for OAuth authentication to streamline the process.
 
-After logging in, you can create a new site. Since I already have a site the option to select is called "add new site" and whenever you click on this you create a new website with the following options:
+Once logged in, you can create a new site by selecting **"Add New Site"** in the admin console. If your project already exists on GitHub, it’s easiest to import the repository directly.
 
 ![New site in the admin console of Netlify](../../../netlify-new-site.JPG)
 
 If you already have your repository set up, I'd suggest importing an existing one. 
 
-In order to instruct Netlify what to do, I suggest adding a netlify.toml to the root of your project to tell Netlify what the build process should look like. I've added the one for the Zola theme here.
+## Configuring Netlify
+
+To tell Netlify how to build and deploy your project, I recommend adding a netlify.toml file to the root of your project. Here’s an example of my setup for a Zola theme:
 
 ```toml
 [build]
@@ -33,39 +35,42 @@ ZOLA_VERSION = "0.19.2"
 ZOLA_BASE_URL = "https://pythontorust.netlify.app/"
 ```
 
-This theme is configured with tailwind.css and postcss. It requires you to build your css file before building the static website itself:
+In this setup, I’m using Tailwind CSS and PostCSS, which require the CSS to be built before the site itself. Here’s the build process:
 
 ```bash
 yarn install --frozen-lockfile
 yarn build 
 ```
 
-After which we can run:
+Once that’s done, you can run:
 
 ```bash
 zola build
 ```
 
-This will ensure that our CSS file ends up in the public folder that contains all of the files that make up the website. These are the files that we deploy.
+This ensures that the generated CSS file is placed in the **public** folder, along with the rest of the website files. These are the files that will be deployed.
 
-## Automation
+## Automating Deployment with Netlify
 
-By selecting our Github repository for the website, any PR to the main branch creates a preview build. Whenever we push to main or merge a branch into main, the website is rebuild and redeployed. For now this is to the default website that Netlify provides based on your website name: "https://[website-name].netlify.app/".
+By connecting your GitHub repository to Netlify, any pull request (PR) to the main branch triggers a preview build. Once changes are merged or pushed to the main branch, the site is automatically rebuilt and redeployed.
+
+Initially, your website will be deployed to a default URL provided by Netlify: https://[website-name].netlify.app/.
 
 ## Acquiring a new Domain
 
-I've used [Antagonist](https://www.antagonist.nl/) in the past and I'll be buying a domain for this blog here as well. I've purchased [pythontorust.nl](pythontorust.nl) and this is the domain that you're currently visiting. 
+For this blog, I purchased the domain [pythontorust.nl](pythontorust.nl) through [Antagonist](https://www.antagonist.nl/). If you're reading this, you're likely already on the custom domain!
 
 
-## Domain Alias
+## Setting Up Domain Alias
 
-Within Netlify you can manage your website. The name of your website will be used to generate the url to which your app is deployed. In my case this is [pythontorust.netlify.app](pythontorust.netlify.app). I'm using [www.pythontorust.nl](www.pythontorust.nl) and [pythontorust.nl](pythontorust.nl) as my domains (the latter one as the main URL).
+Netlify allows you to manage custom domains directly from their platform. By default, your site will be available at something like pythontorust.netlify.app. However, I’m using www.pythontorust.nl and pythontorust.nl as my primary URLs (with the latter as the main one).
 
 ![Domain management tab on Netlify](../../../domain-management.JPG)
 
-## Setting up A-record to Netlify
-I've followed the docs to set up the a-record on my domain registrar (Antagonist), if you run into issues here and need help, reach out to me. 
+## Configuring A-Records for Netlify
 
-It takes some time before Netlify picks up the changes in the DNS configuration of your website. This depends on the TTL (time-to-live). After this has expired and the configuration is correct, the A-record for your custom domain now correctly points to the Netlify server address [75.2.60.5]. Netlify will in the background now deploy your website to your custom domain alongside the deploying to the default netlify domain based on your website name.
+To point my custom domain to Netlify, I followed their documentation to configure the A-records with my domain registrar (Antagonist). If you encounter issues, feel free to reach out to me for help.
+
+It can take a little time for Netlify to detect the DNS changes—this delay is based on your domain’s TTL (Time-to-Live). Once the changes propagate and the A-record is correctly set, your custom domain will point to Netlify’s servers (IP: 75.2.60.5). From there, Netlify will handle deploying your site to both your custom domain and the default Netlify subdomain.
 
 ![DNS-records management on Antagonist](../../../antagonist-records.JPG)
