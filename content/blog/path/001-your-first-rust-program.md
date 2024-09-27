@@ -67,7 +67,9 @@ Hello, Rust!
 For more complex projects, Rust developers typically use `cargo`, Rust’s package manager and build system. It simplifies compiling and running Rust projects. To create a new project with `cargo`, use:
 
 ```bash
-For more complex projects, Rust developers typically use cargo, Rust’s package manager and build system. It simplifies compiling and running Rust projects. To create a new project with cargo, use:
+cargo new my_project
+cd my_project
+cargo run
 ```
 
 This sets up a basic project structure and runs the program for you, making it easier to manage larger Rust codebases.
