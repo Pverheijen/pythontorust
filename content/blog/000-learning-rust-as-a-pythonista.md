@@ -1,7 +1,6 @@
 ---
 title: "Learning Rust as a Pythonista: A Suggested Path"
-date: 2024-09-27
-draft: true
+date: 2024-09-25
 ---
 
 # Learning Rust as a Pythonista: A Suggested Path

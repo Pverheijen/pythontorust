@@ -1,3 +1,8 @@
+---
+title: "Learning Rust as a Pythonista: How to Create and Run a Rust File"
+date: 2024-09-26
+---
+
 ## How to Create and Run a Rust File
 
 If you're coming from Python, you're probably used to running `.py` files directly with the Python interpreter. In Rust, the process involves compiling your code first before running it. Let’s walk through how to create a simple Rust file and run it.
