@@ -1,6 +1,8 @@
 ---
-title: "Learning Rust as a Pythonista: Basic Syntax and Structure"
+title: "002 Learning Rust as a Pythonista: Basic Syntax and Structure"
 date: 2024-09-27
+description: "Basic syntax and structure in Rust"
+tags: [Rust, Python, syntax, structure]
 ---
 
 # Learning Rust as a Pythonista: Basic Syntax and Structure

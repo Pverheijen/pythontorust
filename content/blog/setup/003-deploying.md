@@ -1,5 +1,5 @@
 ---
-title: "Deploying a static website made with Zola to Netlify"
+title: "003 Deploying a static website made with Zola to Netlify"
 date: 2024-09-18
 ---
 

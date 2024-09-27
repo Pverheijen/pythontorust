@@ -1,5 +1,5 @@
 ---
-title: "Getting started with Rust and Zola"
+title: "002 Getting started with Rust and Zola"
 date: 2024-09-17
 description: "Installing Rust and getting started with Zola, a framework for building static websites that is built with Rust"
 tags: [Rust, Zola, blog]

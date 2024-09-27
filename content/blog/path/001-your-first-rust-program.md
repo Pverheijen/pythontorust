@@ -1,6 +1,8 @@
 ---
-title: "Learning Rust as a Pythonista: How to Create and Run a Rust File"
+title: "001 Learning Rust as a Pythonista: How to Create and Run a Rust File"
 date: 2024-09-26
+description: "How to create and run a Rust file"
+tags: [Rust, Python, compile, run]
 ---
 
 ## How to Create and Run a Rust File

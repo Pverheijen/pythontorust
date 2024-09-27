@@ -1,5 +1,5 @@
 ---
-title: "Starting a blog for learning Rust coming from Python"
+title: "001 Starting a blog for learning Rust coming from Python"
 date: 2024-09-16
 description: "A little bit of background on how this blog came to be"
 tags: [getting-started, Rust, blog, autobiography]
