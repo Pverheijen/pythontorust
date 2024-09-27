@@ -1,5 +1,5 @@
 ---
-title: "008"
+title: "009"
 date: 2024-09-26
 description: "Macros in Rust"
 tags: [Rust, Python]
@@ -46,6 +46,8 @@ In this example, the macro `say_hello` expands to `println!("Hello, Rust!");` wh
 - **Compile-time Code Generation**: Macros are expanded at compile time, meaning the code they generate becomes part of your program before the compilation process starts.
 - **No Runtime Cost**: Since macros operate at compile time, they don’t introduce any runtime overhead.
 
+---
+
 ### 3. Macros with Arguments
 
 Just like functions, macros can also accept arguments, which makes them more versatile and allows them to generate different code depending on the input.
@@ -71,6 +73,8 @@ In this example, the macro `print_value` accepts an expression (`$val`) and prin
 
 - `$val:expr` indicates that the macro accepts any expression.
 - The power of macros comes from their ability to match patterns and expand them into code.
+
+---
 
 ### 4. Repetition in Macros
 
@@ -104,6 +108,8 @@ In this example, the macro `create_functions!` generates three different functio
 
 - **Repetition**: Macros can handle repetition with the `*` operator, making them useful for code generation when you need multiple similar elements.
 - **Pattern Matching**: Macros use pattern matching to identify the input and generate the appropriate output based on the provided patterns.
+
+---
 
 ### 5. Procedural Macros
 
@@ -189,32 +195,31 @@ fn impl_hello_macro(ast: &syn::DeriveInput) -> TokenStream {
 }
 ```
 
-
-Sure! Here’s a small example of a procedural macro that implements a custom derive macro for a trait called Hello that prints a custom message for a struct:
-
-Procedural Macro Example
+#### Procedural Macro Example
 This example will be split into two parts:
 
-Defining the procedural macro (typically in a separate crate).
-Using the procedural macro.
-Part 1: Define the procedural macro
+1. Defining the procedural macro (typically in a separate crate).
+2. Using the procedural macro.
+
+##### Part 1: Define the procedural macro
 First, create a new crate (a Rust project) for the procedural macro:
 
-bash
-Copy code
+```bash
 cargo new hello_macro --lib
-Inside the Cargo.toml file, add the following dependencies:
+```
 
-toml
-Copy code
+Inside the `Cargo.toml` file, add the following dependencies:
+
+```toml
 [dependencies]
 syn = "1.0"
 quote = "1.0"
 proc-macro2 = "1.0"
-In src/lib.rs, define the procedural macro:
+```
 
-rust
-Copy code
+In `src/lib.rs`, define the procedural macro:
+
+```rust
 extern crate proc_macro;
 use proc_macro::TokenStream;
 use quote::quote;
@@ -240,6 +245,7 @@ fn impl_hello_macro(ast: &syn::DeriveInput) -> TokenStream {
     };
     gen.into()
 }
+```
 
 This macro will generate an implementation for a trait called `Hello` that prints a custom message when called.
 
@@ -284,7 +290,6 @@ Hello, I am a User!
 This simple example demonstrates how to use procedural macros to generate custom code based on Rust’s abstract syntax tree (AST) and apply it to structs.
 
 
-```
 While procedural macros are very powerful, they are more complex to write compared to declarative macros, so they are often used for more advanced metaprogramming tasks.
 
 ### 6. Macros vs Functions
