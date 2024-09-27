@@ -8,6 +8,12 @@ draft: true
 
 This article is the first in a series that explores learning Rust from the perspective of someone familiar with Python. If you're comfortable with Python and looking to understand Rust, this guide highlights concepts in Rust that relate to Python, as well as those that are exclusive to Rust. Additionally, we'll dive into some Rust-based tools that are boosting the Python ecosystem.
 
+## 0. Creating and Running a Rust File  
+**Rust Learning**: Compiling and running a Rust program  
+**Relatable Python Concept**: Running Python scripts directly with an interpreter (`python script.py`)  
+- In Python, scripts are interpreted and executed directly, while Rust programs must be compiled before running.  
+- Explore the steps for creating a simple Rust file, compiling it using `rustc`, and executing the compiled binary, contrasting it with Python's interpreted model.
+
 ## 1. Basic Syntax and Structure
 **Rust Learning**: Functions, Variables, and Control Flow  
 **Relatable Python Concept**: Defining functions (`def` in Python vs. `fn` in Rust), variables, `if` statements  
