@@ -1,8 +1,8 @@
 ---
 title: "003 - Error Handling"
 date: 2024-09-26
-description: "Error Handling"
-tags: [Rust, Python]
+description: "In this article, we delve into the contrasting approaches to error handling between Rust and Python. By examining Rust's Result and Option types against Python's try-except blocks, we highlight how Rust's compile-time error management encourages more robust and predictable code. Through practical examples, we illustrate key differences and advantages of both languages' error handling mechanisms."
+tags: ["Rust", "Python", "Error Handling", "Programming", "Comparison", "Learning Rust"]
 draft: true
 ---
 
@@ -181,3 +181,84 @@ fn main() {
 Error handling in Rust is more explicit and rigorous than in Python, providing compile-time guarantees that errors are properly addressed. While Python's exception-based system is flexible, Rust’s `Result` and `Option` types ensure that error handling is never left to chance. These differences reflect Rust's focus on safety and robustness, especially when developing performance-critical or system-level applications.
 
 In the next article, we’ll take a closer look at `Structs` and `Enums` in Rust, and compare them to Python’s `namedtuple` and `dataclass`. Stay tuned!
+
+### Running the Complete Rust Example
+
+```rust
+use std::collections::HashMap;
+use std::fs;
+
+fn divide(a: f64, b: f64) -> Result<f64, String> {
+    if b == 0.0 {
+        Err(String::from("Cannot divide by zero"))
+    } else {
+        Ok(a / b)
+    }
+}
+
+// Adding lifetime annotations
+fn find_value<'a>(dictionary: &'a HashMap<&'a str, i32>, key: &'a str) -> Option<&'a i32> {
+    dictionary.get(key)
+}
+
+fn read_file_content(path: &str) -> Result<String, std::io::Error> {
+    fs::read_to_string(path)
+}
+
+#[derive(Debug)]
+struct CustomError(String);
+
+fn raise_custom_error() -> Result<(), CustomError> {
+    Err(CustomError(String::from("This is a custom error")))
+}
+
+fn main() {
+    // Division examples
+    match divide(10.0, 2.0) {
+        Ok(result) => println!("Result: {}", result),
+        Err(e) => println!("Error: {}", e),
+    }
+
+    match divide(10.0, 0.0) {
+        Ok(result) => println!("Result: {}", result),
+        Err(e) => println!("Error: {}", e),
+    }
+
+    // Find value in HashMap
+    let mut data = HashMap::new();
+    data.insert("a", 1);
+    data.insert("b", 2);
+
+    match find_value(&data, "a") {
+        Some(value) => println!("Found: {}", value),
+        None => println!("Key not found"),
+    }
+
+    match find_value(&data, "c") {
+        Some(value) => println!("Found: {}", value),
+        None => println!("Key not found"),
+    }
+
+    // Read file content (replace "my_file.txt" with an existing file path)
+    match read_file_content("my_file.txt") {
+        Ok(content) => println!("{}", content),
+        Err(e) => println!("Error reading file: {}", e),
+    }
+
+    // Raise custom error
+    match raise_custom_error() {
+        Ok(_) => println!("No error"),
+        Err(e) => println!("Caught custom error: {:?}", e),
+    }
+}
+```
+## Instructions to Run
+
+1. **Save the Code**: Copy the above code into a new file named `main.rs`.
+
+2. **Create a Sample File**: Ensure you have a file named `my_file.txt` in the same directory as your Rust file, or change the filename in the code to an existing file.
+
+3. **Run the Code**: In your terminal, navigate to the directory containing the `main.rs` file and run:
+   ```bash
+   cargo run
+   ```

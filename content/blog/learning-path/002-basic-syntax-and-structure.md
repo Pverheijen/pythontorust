@@ -1,12 +1,10 @@
 ---
-title: "002 Learning Rust as a Pythonista: Basic Syntax and Structure"
+title: "002 - Learning Rust as a Pythonista: Basic Syntax and Structure"
 date: 2024-09-27
-description: "Basic syntax and structure in Rust"
-tags: [Rust, Python, syntax, structure]
+description: "In this article, we introduce Rust from a Pythonista's perspective, focusing on basic syntax and structure. Through comparisons between Python and Rust, we cover defining functions, variables, control flow, and loops, helping Python developers ease into Rust's stricter type system and memory management features. This is the first post in a series aimed at making Rust more approachable for Python developers."
+tags: ["Rust", "Python", "Programming", "Syntax", "Comparison", "Functions", "Variables", "Loops", "Control Flow", "Types", "Pythonista", "Beginners", "Software Development"]
 draft: true
 ---
-
-# Learning Rust as a Pythonista: Basic Syntax and Structure
 
 Welcome to the first article in the series on learning Rust from a Pythonista’s perspective. In this post, we’ll dive into the fundamental syntax and structure of Rust, drawing comparisons to Python to ease the learning curve. This will help you get familiar with Rust's core language features by relating them to what you already know.
 
@@ -18,6 +16,16 @@ In Python, functions are defined with `def`, and you have the freedom of not exp
 def add(x, y):
     return x + y
 ```
+
+In Rust, functions are defined using the `fn` keyword. Unlike Python, Rust enforces explicit type annotations for both parameters and return values:
+
+```rust
+fn add(x: i32, y: i32) -> i32 {
+    x + y
+}
+```
+
+In this Rust example, the types of `x` and `y` are explicitly declared as `i32`, which is a 32-bit integer, and the return type is also specified after the `->` symbol. Rust's strict type system ensures safety and performance at compile time, something Python typically handles dynamically at runtime.
 
 ## Key Differences:
 
@@ -170,3 +178,68 @@ fn main() {
 The basics of Rust syntax and structure are not drastically different from Python, but Rust’s strict typing, immutability by default, and expression-based control flow may feel unfamiliar at first. Understanding these foundational differences will set you up for success as you dive deeper into Rust’s powerful features.
 
 In the next article, we’ll explore Rust’s memory management model, focusing on Ownership and Borrowing, which is quite different from Python’s garbage collection system. Stay tuned!
+
+## Running the Complete Rust Example
+
+```rust
+// 1. Defining Functions in Rust
+fn add(x: i32, y: i32) -> i32 {
+    x + y
+}
+
+fn main() {
+    // Call the add function
+    println!("Sum of 2 and 3: {}", add(2, 3));
+
+    // 2. Variables and Mutability
+    let mut x = 10;
+    x = x + 5;
+    println!("Updated value of x: {}", x);
+
+    // 3. Control Flow: if Statements
+    if x > 5 {
+        println!("x is greater than 5");
+    } else {
+        println!("x is less than or equal to 5");
+    }
+
+    // 4. Loops in Rust: for Loop
+    println!("For loop output:");
+    for i in 0..5 {
+        println!("{}", i);
+    }
+
+    // 4. Loops in Rust: while Loop
+    println!("While loop output:");
+    let mut y = 0;
+    while y < 5 {
+        println!("{}", y);
+        y += 1;
+    }
+
+    // 5. Returning values from if statements
+    let z = if x > 5 { 10 } else { 0 };
+    println!("Value of z: {}", z);
+
+    // 6. Rust's main function (Already part of the example)
+    println!("Hello, Rust!");
+}
+```
+
+### Explanation:
+- **Defining Functions:** The `add` function is defined and called with parameters `2` and `3`, returning their sum.
+- **Variables and Mutability:** A mutable variable `x` is modified and printed.
+- **Control Flow:** An `if` statement checks whether `x` is greater than 5 and prints the appropriate message.
+- **Loops:** A `for` loop prints numbers from `0` to `4`, and a `while` loop does the same for `y` from `0` to `4`.
+- **Returning Values from `if`:** The result of the `if` expression is stored in `z` and printed.
+
+You can compile and run this Rust code to verify the output.
+
+### To run it:
+1. Create a file called `main.rs`.
+2. Copy this code into the file.
+3. Compile and run using the following commands:
+   ```bash
+   rustc main.rs
+   ./main
+    ```
