@@ -1,0 +1,4 @@
+user-agent: *
+Disallow:
+
+Sitemap: https://www.pythontorust.nl/sitemap.xml
