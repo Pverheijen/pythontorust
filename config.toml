@@ -34,7 +34,7 @@ render_emoji = true
 smart_punctuation = true
 
 [extra]
-homepage_title = "From Python to Rust and back"
+homepage_title = "Python to Rust"
 homepage_subtitle = "A blog on learning Rust as a Pythonista"
 homepage_img_url = "/rusty-python-3.png"
 

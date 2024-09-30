@@ -8,3 +8,6 @@ Minimal theme for [Zola](https://www.getzola.org/), powered by
 https://boring-zola.netlify.app/
 
 ![screenshot](./screenshot.png)
+
+#### Ideas
+Power of the Rust compiler
