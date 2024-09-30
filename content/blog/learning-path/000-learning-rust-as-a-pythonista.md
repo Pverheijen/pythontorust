@@ -72,24 +72,3 @@ Python lacks a true equivalent to Rust’s powerful pattern matching, though Pyt
 **Rust Learning**: Macros (`macro_rules!`)  
 Python doesn’t have a macro system in the same sense as Rust.  
 - Explore how Rust macros provide metaprogramming capabilities and compile-time code generation that Python achieves through dynamic features like decorators.
-
----
-
-# Rust in the Python Ecosystem
-
-Rust is making waves in the Python ecosystem, especially in performance-critical libraries. These articles will explore how Rust is used to supercharge Python libraries.
-
-## 10. Ruff - The Rust-Powered Python Linter
-**Rust Learning**: Building performance-critical tools  
-**Python Concept**: Python linters (e.g., flake8, pylint)  
-- Ruff is a fast, Rust-powered linter for Python, designed to catch common coding mistakes and enforce style.  
-- Compare Ruff's performance benefits due to its Rust core against Python-native linters like `flake8` or `pylint`.  
-- Highlight how Rust enables the development of faster, more efficient tools for Python developers, improving the dev workflow without sacrificing Python’s flexibility.
-
-## 11. Polars
-**Rust’s Role**: Polars is a DataFrame library, written in Rust, designed for high-performance data manipulation.  
-- Compare the performance and design philosophy of Polars with Python's Pandas.
-
-## 12. Hugging Face Tokenizer
-**Rust’s Role**: Hugging Face’s Tokenizers library leverages Rust for its blazing-fast performance.  
-- Explain how Rust's performance-critical sections improve text tokenization tasks, allowing Python APIs to handle huge NLP datasets efficiently.
