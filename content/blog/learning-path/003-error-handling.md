@@ -83,8 +83,8 @@ print(find_value(data, "c"))  # None
 In Rust, you would use the `Option<T>` type for the same purpose:
 
 ```rust
-fn find_value(dictionary: &std::collections::HashMap<&str, i32>, key: &str) -> Option<&i32> {
-    dictionary.get(key)
+fn find_value(dictionary: &std::collections::HashMap<&str, i32>, key: &str) -> Option<i32> {
+    dictionary.get(key).copied() // Use copied() to convert Option<&i32> to Option<i32>
 }
 
 fn main() {
@@ -126,7 +126,7 @@ fn read_file_content(path: &str) -> Result<String, std::io::Error> {
 fn main() -> Result<(), std::io::Error> {
     let content = read_file_content("my_file.txt")?;
     println!("{}", content);
-    Ok(())
+    Ok(());
 }
 ```
 ### Key Differences:
@@ -200,6 +200,11 @@ fn divide(a: f64, b: f64) -> Result<f64, String> {
 fn find_value<'a>(dictionary: &'a HashMap<&'a str, i32>, key: &'a str) -> Option<&'a i32> {
     dictionary.get(key)
 }
+
+// Here we use copied since we have not covered lifetime annotations yet
+// fn find_value(dictionary: &std::collections::HashMap<&str, i32>, key: &str) -> Option<i32> {
+//     dictionary.get(key).copied() // Use copied() to convert Option<&i32> to Option<i32>
+// }
 
 fn read_file_content(path: &str) -> Result<String, std::io::Error> {
     fs::read_to_string(path)
