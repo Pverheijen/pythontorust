@@ -3,7 +3,7 @@ title: "003 - Error Handling"
 date: 2024-09-26
 description: "In this article, we delve into the contrasting approaches to error handling between Rust and Python. By examining Rust's Result and Option types against Python's try-except blocks, we highlight how Rust's compile-time error management encourages more robust and predictable code. Through practical examples, we illustrate key differences and advantages of both languages' error handling mechanisms."
 tags: ["Rust", "Python", "Error Handling", "Programming", "Comparison", "Learning Rust"]
-draft: true
+draft: false
 ---
 
 # Learning Rust as a Pythonista: Error Handling
