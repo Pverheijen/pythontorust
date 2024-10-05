@@ -220,3 +220,91 @@ apply(lambda x: x + 5)  # Output: 15
 Rust's iterators and closures provide more control and type safety than Python’s generators and lambda functions. While Python’s approach is more dynamic and flexible, Rust’s stricter memory management and trait-based system offer more powerful guarantees, especially when working with complex data transformations or performance-critical code.
 
 In the next article, we’ll dive into Rust’s **Traits** and compare them to Python’s **Duck Typing** and **Protocols**. Stay tuned!
+
+### Running the Complete Rust Example
+
+```rust
+fn main() {
+    println!("1. Simple Iterator:");
+    simple_iterator();
+
+    println!("\n2. Custom Iterator:");
+    custom_iterator();
+
+    println!("\n3. Iterator Adaptor:");
+    iterator_adaptor();
+
+    println!("\n4. Simple Closure:");
+    simple_closure();
+
+    println!("\n5. Mutable Closure:");
+    mutable_closure();
+
+    println!("\n6. Closure as Function Parameter:");
+    closure_as_parameter();
+}
+
+fn simple_iterator() {
+    let numbers = vec![1, 2, 3, 4, 5];
+    for num in numbers.iter() {
+        println!("{}", num);
+    }
+}
+
+struct Countdown {
+    count: i32,
+}
+
+impl Iterator for Countdown {
+    type Item = i32;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.count > 0 {
+            self.count -= 1;
+            Some(self.count + 1)
+        } else {
+            None
+        }
+    }
+}
+
+fn custom_iterator() {
+    let countdown = Countdown { count: 5 };
+    for num in countdown {
+        println!("{}", num);
+    }
+}
+
+fn iterator_adaptor() {
+    let numbers = vec![1, 2, 3, 4, 5];
+    let squared: Vec<i32> = numbers.iter().map(|x| x * x).collect();
+    println!("{:?}", squared);
+}
+
+fn simple_closure() {
+    let x = 10;
+    let add = |y| x + y;
+    println!("{}", add(5));  // Output: 15
+}
+
+fn mutable_closure() {
+    let mut x = 10;
+    let mut add = |y| {
+        x += y;
+        x
+    };
+    println!("{}", add(5));  // Output: 15
+    println!("{}", x);       // Output: 15
+}
+
+fn apply<F>(f: F) 
+where F: Fn(i32) -> i32 {
+    let result = f(10);
+    println!("{}", result);
+}
+
+fn closure_as_parameter() {
+    let closure = |x| x + 5;
+    apply(closure);  // Output: 15
+}
+```

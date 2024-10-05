@@ -1,5 +1,5 @@
 ---
-title: "000 Learning Rust as a Pythonista: A Suggested Path"
+title: "000 - Learning Rust as a Pythonista: A Suggested Path"
 date: 2024-09-25
 description: "A suggested path to learn Rust coming from Python"
 tags: [Rust, Python, path]

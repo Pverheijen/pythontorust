@@ -1,5 +1,5 @@
 ---
-title: "001 Learning Rust as a Pythonista: How to Create and Run a Rust File"
+title: "001 - Learning Rust as a Pythonista: How to Create and Run a Rust File"
 date: 2024-09-26
 description: "In this guide, we walk through how to create and run a basic Rust file, comparing the process to Python. From installing Rust to compiling and running a simple program, this post covers the essential steps. We also introduce cargo, Rust’s build system, which is key for managing larger projects. If you're new to Rust, this tutorial will help you get started with the basics of compiling and executing Rust code."
 tags: ["Rust", "Python", "Programming", "Tutorial", "Getting Started", "Compiling", "Rustc", "Cargo", "Hello World", "Beginner", "Software Development"]

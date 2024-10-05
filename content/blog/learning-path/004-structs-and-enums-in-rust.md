@@ -206,3 +206,68 @@ fn main() {
 Structs and Enums in Rust offer a more powerful and flexible way to model complex data compared to Python’s `namedtuple`, `dataclass`, and `Enum`. While Python's constructs are easy to use and flexible, Rust's design emphasizes type safety, immutability, and exhaustive pattern matching. These features help ensure that programs behave predictably and that errors are caught at compile-time.
 
 In the next article, we’ll explore **Iterators and Closures**, comparing them to Python’s generators and lambda functions. Stay tuned!
+
+### Running the Complete Rust Example
+
+```rust
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+struct Color(i32, i32, i32);
+
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
+
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+enum Shape {
+    Circle(f64),
+    Rectangle { width: f64, height: f64 },
+}
+
+fn area(shape: Shape) -> f64 {
+    match shape {
+        Shape::Circle(radius) => 3.14 * radius * radius,
+        Shape::Rectangle { width, height } => width * height,
+    }
+}
+
+fn main() {
+    // Struct Example
+    let mut p = Point { x: 0, y: 0 };
+    p.x = 10;
+    p.y = 20;
+    println!("Updated Point: x: {}, y: {}", p.x, p.y);
+
+    // Tuple Struct Example
+    let red = Color(255, 0, 0);
+    println!("Red: {}, {}, {}", red.0, red.1, red.2);
+
+    // Enum Example with Message
+    let msg = Message::Move { x: 10, y: 20 };
+    match msg {
+        Message::Quit => println!("Quit"),
+        Message::Move { x, y } => println!("Move to {}, {}", x, y),
+        Message::Write(text) => println!("Text message: {}", text),
+        Message::ChangeColor(r, g, b) => println!("Change color to {}, {}, {}", r, g, b),
+    }
+
+    // Pattern Matching with Enums
+    let circle = Shape::Circle(5.0);
+    let rectangle = Shape::Rectangle { width: 3.0, height: 4.0 };
+
+    println!("Circle area: {}", area(circle));
+    println!("Rectangle area: {}", area(rectangle));
+}
+```
