@@ -1,6 +1,6 @@
 ---
 title: "004 - Structs and Enums"
-date: 2024-09-26
+date: 2024-10-07
 description: "Structs and Enums"
 tags: [Rust, Python]
 draft: false
