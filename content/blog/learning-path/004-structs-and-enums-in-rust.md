@@ -3,7 +3,7 @@ title: "004 - Structs and Enums"
 date: 2024-09-26
 description: "Structs and Enums"
 tags: [Rust, Python]
-draft: true
+draft: false
 ---
 
 # Learning Rust as a Pythonista: Structs and Enums
