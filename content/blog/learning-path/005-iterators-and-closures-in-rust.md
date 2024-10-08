@@ -1,9 +1,9 @@
 ---
 title: "005 - Iterators and Closures"
-date: 2024-09-26
+date: 2024-10-08
 description: "Iterators and Closures"
 tags: [Rust, Python]
-draft: true
+draft: false
 ---
 
 # Learning Rust as a Pythonista: Iterators and Closures
