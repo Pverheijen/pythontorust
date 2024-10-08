@@ -20,22 +20,6 @@
         </h1>
         <div class="w-full border-t mb-8 border-slate-300 dark:border-slate-700"></div>
         <div class="prose-boring">
-
-            {% if page.ancestors | length > 0 %}
-                {% set parent_section_path = page.ancestors | last %}
-                {% set parent_section = get_section(path=parent_section_path) %}
-            {% else %}
-                {% set parent_section = get_section(path="index.md") %}
-            {% endif %}
-            
-            {% set siblings = parent_section.pages | sort(attribute="date", direction="desc") %}
-
-            {% for sibling in siblings %}
-                {% if sibling != page %}
-                    <p><a href="{{ sibling.permalink }}">{{ sibling.title }}</a></p>
-                {% endif %}
-            {% endfor %}
-        
             {{ page.content | safe }}
                 
             <!-- Invitation Text -->
@@ -63,5 +47,23 @@
                 </div>
             </form>
 
+            <h2 class="w-full mt-4 mb-8 font-serif text-2xl text-slate-900 dark:text-slate-300">
+                Other articles in the series:
+            </h2>
+
+            {% if page.ancestors | length > 0 %}
+                {% set parent_section_path = page.ancestors | last %}
+                {% set parent_section = get_section(path=parent_section_path) %}
+            {% else %}
+                {% set parent_section = get_section(path="index.md") %}
+            {% endif %}
+            
+            {% set siblings = parent_section.pages | sort(attribute="date", direction="desc") %}
+
+            {% for sibling in siblings %}
+                {% if sibling != page %}
+                    <p><a href="{{ sibling.permalink }}">{{ sibling.title }}</a></p>
+                {% endif %}
+            {% endfor %}
         </div>
 {% endblock content %}

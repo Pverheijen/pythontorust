@@ -1,5 +1,6 @@
 ---
 title: "002 - Learning Rust as a Pythonista: Basic Syntax and Structure"
+authors: ["Peter Verheijen"]
 date: 2024-09-27
 description: "In this article, we introduce Rust from a Pythonista's perspective, focusing on basic syntax and structure. Through comparisons between Python and Rust, we cover defining functions, variables, control flow, and loops, helping Python developers ease into Rust's stricter type system and memory management features. This is the first post in a series aimed at making Rust more approachable for Python developers."
 tags: ["Rust", "Python", "Programming", "Syntax", "Comparison", "Functions", "Variables", "Loops", "Control Flow", "Types", "Pythonista", "Beginners", "Software Development"]

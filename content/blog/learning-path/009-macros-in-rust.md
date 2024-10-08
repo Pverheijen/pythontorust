@@ -1,5 +1,6 @@
 ---
 title: "009"
+authors: ["Peter Verheijen"]
 date: 2024-09-26
 description: "Macros in Rust"
 tags: [Rust, Python]

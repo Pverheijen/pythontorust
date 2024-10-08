@@ -1,5 +1,6 @@
 ---
 title: "005 - Iterators and Closures"
+authors: ["Peter Verheijen"]
 date: 2024-10-08
 description: "Iterators and Closures"
 tags: [Rust, Python]

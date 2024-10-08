@@ -1,5 +1,6 @@
 ---
 title: "000 - Learning Rust as a Pythonista: A Suggested Path"
+authors: ["Peter Verheijen"]
 date: 2024-09-25
 description: "A suggested path to learn Rust coming from Python"
 tags: [Rust, Python, path]

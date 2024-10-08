@@ -1,5 +1,6 @@
 ---
 title: "003 Deploying a static website made with Zola to Netlify"
+authors: ["Peter Verheijen"]
 date: 2024-09-18
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "008"
+authors: ["Peter Verheijen"]
 date: 2024-09-26
 description: "Pattern Matching in Rust"
 tags: [Rust, Python]

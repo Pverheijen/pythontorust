@@ -1,5 +1,6 @@
 ---
 title: "007"
+authors: ["Peter Verheijen"]
 date: 2024-09-26
 description: "Concurrency in Rust"
 tags: [Rust, Python]

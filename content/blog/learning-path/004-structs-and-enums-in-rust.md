@@ -1,5 +1,6 @@
 ---
 title: "004 - Structs and Enums"
+authors: ["Peter Verheijen"]
 date: 2024-10-07
 description: "Structs and Enums"
 tags: [Rust, Python]
