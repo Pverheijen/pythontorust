@@ -4,7 +4,7 @@ authors: ["Peter Verheijen"]
 date: 2024-09-26
 description: "Rust’s Traits and compare them to Python’s Duck Typing and Protocols"
 tags: [Rust, Python]
-draft: true
+draft: false
 ---
 
 # Learning Rust as a Pythonista: Traits vs. Duck Typing and Protocols
