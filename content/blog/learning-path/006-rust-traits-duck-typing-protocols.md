@@ -1,9 +1,9 @@
 ---
-title: "006"
+title: "006 - Rust Traits vs. Python Duck Typing: A Comparison for Pythonistas"
 authors: ["Peter Verheijen"]
 date: 2024-09-26
-description: "Rust’s Traits and compare them to Python’s Duck Typing and Protocols"
-tags: [Rust, Python]
+description: "Explore Rust’s Traits and how they compare to Python’s Duck Typing and Protocols, offering insights into the different approaches these languages take towards type safety, flexibility, and performance."
+tags: [Rust, Python, Duck Typing, Traits, Protocols, Type Safety, Programming]
 draft: false
 ---
 
