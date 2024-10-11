@@ -4,7 +4,7 @@ authors: ["Peter Verheijen"]
 date: 2024-09-26
 description: "Concurrency in Rust"
 tags: [Rust, Python]
-draft: true
+draft: false
 ---
 
 # Learning Rust as a Pythonista: Concurrency in Rust
