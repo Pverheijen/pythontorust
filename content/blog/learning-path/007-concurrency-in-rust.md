@@ -1,9 +1,9 @@
 ---
-title: "007"
+title: "007 - Concurrency in Rust for Python Developers"
 authors: ["Peter Verheijen"]
-date: 2024-09-26
-description: "Concurrency in Rust"
-tags: [Rust, Python]
+date: 2024-10-11
+description: "A deep dive into Rust's concurrency model and how it compares to Python's async and thread-based approaches."
+tags: [Rust, Python, Concurrency, Async, Multithreading]
 draft: false
 ---
 
