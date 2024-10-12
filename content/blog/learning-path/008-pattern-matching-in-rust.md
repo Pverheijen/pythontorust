@@ -1,10 +1,10 @@
 ---
-title: "008"
+title: "008 - Pattern Matching in Rust for Python Developers"
 authors: ["Peter Verheijen"]
-date: 2024-09-26
-description: "Pattern Matching in Rust"
-tags: [Rust, Python]
-draft: true
+date: 2024-10-12
+description: "Dive into Rust's powerful pattern matching features and see how they compare with Python's structural pattern matching, introduced in Python 3.10. Learn how Rust enforces exhaustive matching and compile-time safety, offering a deeper integration of this feature into the language's design."
+tags: [Rust, Python, Pattern Matching, Structural Pattern Matching, Enums, Destructuring]
+draft: false
 ---
 
 # Learning Rust as a Pythonista: Pattern Matching
@@ -226,3 +226,80 @@ If you omit the `_` arm in this example, Rust will raise a compile-time error be
 Pattern matching in Rust is one of the language’s most powerful features, allowing you to concisely and safely destructure complex data structures and handle multiple cases. While Python introduced structural pattern matching in Python 3.10, Rust’s system is more deeply integrated and versatile, offering advanced features like destructuring, pattern guards, and exhaustive checking.
 
 In the next article, we’ll explore **Rust’s Memory Model** and compare it with Python’s garbage collection system, focusing on **Ownership and Borrowing**. Stay tuned!
+
+### Running the Complete Rust Example
+
+```rust
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn process_message(msg: Message) {
+    match msg {
+        Message::Quit => println!("Quit"),
+        Message::Move { x, y } => println!("Move to {}, {}", x, y),
+        Message::Write(text) => println!("Text message: {}", text),
+        Message::ChangeColor(r, g, b) => println!("Change color to {}, {}, {}", r, g, b),
+    }
+}
+
+fn print_point(point: Point) {
+    match point {
+        Point { x: 0, y } => println!("On the y-axis at {}", y),
+        Point { x, y: 0 } => println!("On the x-axis at {}", x),
+        Point { x, y } => println!("Point at ({}, {})", x, y),
+    }
+}
+
+fn process_value(x: i32) {
+    match x {
+        n if n < 0 => println!("Negative number"),
+        n if n == 0 => println!("Zero"),
+        n if n > 0 => println!("Positive number"),
+        _ => println!("No match"),
+    }
+}
+
+fn print_coordinates(coords: (i32, i32)) {
+    match coords {
+        (0, y) => println!("On the y-axis at {}", y),
+        (x, 0) => println!("On the x-axis at {}", x),
+        (x, y) => println!("Coordinates: ({}, {})", x, y),
+    }
+}
+
+fn process_option(opt: Option<i32>) {
+    match opt {
+        Some(x) if x > 10 => println!("Got a big number: {}", x),
+        Some(x) => println!("Got a number: {}", x),
+        None => println!("Got nothing"),
+    }
+}
+
+fn main() {
+    let msg = Message::Move { x: 10, y: 20 };
+    process_message(msg);
+
+    let p = Point { x: 0, y: 5 };
+    print_point(p);
+
+    process_value(-5);
+    process_value(0);
+    process_value(10);
+
+    let coords = (0, 5);
+    print_coordinates(coords);
+
+    process_option(Some(20));
+    process_option(Some(5));
+    process_option(None);
+}
+```

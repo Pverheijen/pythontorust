@@ -219,3 +219,56 @@ In this example, `tokio::spawn` is used to spawn asynchronous tasks, similar to 
 Concurrency in Rust is powerful, flexible, and safe. Rust’s combination of async programming and thread-based concurrency gives you the best of both worlds: fine-grained control for performance-critical tasks, and memory safety to prevent common concurrency bugs like data races. Compared to Python’s `asyncio` and `concurrent.futures`, Rust offers better performance and stronger guarantees around safety, especially for CPU-bound or low-level tasks.
 
 In the next article, we’ll dive deeper into **Pattern Matching in Rust**, exploring more advanced features like **Pattern Guards**, **Bindings**, and **Nested Destructuring**, and compare it with Python’s pattern matching capabilities. Stay tuned!
+
+### Running the Complete Rust Example
+
+```rust
+use std::sync::{Arc, Mutex};
+use std::thread;
+use std::time::Duration;
+use tokio::time::sleep;
+
+// Async task example using Tokio
+async fn fetch_data() -> String {
+    println!("Fetching data asynchronously...");
+    sleep(Duration::from_secs(1)).await;
+    String::from("Data received asynchronously")
+}
+
+#[tokio::main]
+async fn async_main() {
+    let data = fetch_data().await;
+    println!("{}", data);
+}
+
+// Thread-based concurrency example
+fn thread_example() {
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for _ in 0..5 {
+        let counter = Arc::clone(&counter);
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+            *num += 1;
+            println!("Thread incremented counter to {}", *num);
+            thread::sleep(Duration::from_millis(500));
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Final counter: {}", *counter.lock().unwrap());
+}
+
+fn main() {
+    // Run thread-based concurrency example
+    thread_example();
+
+    // Run async example with Tokio
+    async_main();
+}
+```

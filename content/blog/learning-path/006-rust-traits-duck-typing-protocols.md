@@ -209,3 +209,38 @@ While Python’s duck typing makes the language easy to use and flexible, Rust�
 
 In the next article, we’ll explore **Concurrency in Rust**, comparing it with Python’s `asyncio` and `concurrent.futures`. Stay tuned!
 
+### Running the Complete Rust Example
+
+```rust
+trait Quack {
+    fn quack(&self) -> String;
+}
+
+struct Duck;
+struct Dog;
+
+impl Quack for Duck {
+    fn quack(&self) -> String {
+        String::from("Quack!")
+    }
+}
+
+impl Quack for Dog {
+    fn quack(&self) -> String {
+        String::from("I'm a dog, but I can quack!")
+    }
+}
+
+// Function that accepts any type implementing the Quack trait using dynamic dispatch
+fn make_quack(animal: &dyn Quack) {
+    println!("{}", animal.quack());
+}
+
+fn main() {
+    let duck = Duck;
+    let dog = Dog;
+
+    make_quack(&duck);  // Output: Quack!
+    make_quack(&dog);   // Output: I'm a dog, but I can quack!
+}
+```
