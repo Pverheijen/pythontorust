@@ -1,5 +1,5 @@
 ---
-title: "001 - Learning Rust as a Pythonista: Zero-Cost Abstractions"
+title: "001 - Memory Mastery: Zero-Cost Abstractions"
 authors: ["Peter Verheijen"]
 date: 2024-10-25
 description: "Understanding Rust's zero-cost abstractions compared to Python's abstractions."
