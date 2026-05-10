@@ -40,7 +40,7 @@ homepage_subtitle = "A blog on learning Rust as a Pythonista"
 homepage_img_url = "/rusty-python-3.png"
 
 # Refer https://support.google.com/analytics/answer/9539598?hl=en
-google_analytics_measurement_id = "G-LL62DV39B5"
+google_analytics_measurement_id = "G-7MNZQZ8YQ3"
 
 # Refer https://icons8.com/line-awesome for list of icons
 # Both `url` and `icon` should be set for each entry
