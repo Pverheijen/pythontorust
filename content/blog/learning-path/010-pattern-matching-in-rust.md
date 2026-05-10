@@ -1,10 +1,11 @@
 ---
-title: "008 - Pattern Matching in Rust for Python Developers"
+title: "010 - Pattern Matching in Rust"
 authors: ["Peter Verheijen"]
-date: 2024-10-12
-description: "Dive into Rust's powerful pattern matching features and see how they compare with Python's structural pattern matching, introduced in Python 3.10. Learn how Rust enforces exhaustive matching and compile-time safety, offering a deeper integration of this feature into the language's design."
+date: 2024-10-13
+description: "Master Rust pattern matching with enums, guards, destructuring, and exhaustive handling."
 tags: [Rust, Python, Pattern Matching, Structural Pattern Matching, Enums, Destructuring]
 draft: false
+template: "page.html"
 ---
 
 # Learning Rust as a Pythonista: Pattern Matching
@@ -225,7 +226,7 @@ If you omit the `_` arm in this example, Rust will raise a compile-time error be
 
 Pattern matching in Rust is one of the language’s most powerful features, allowing you to concisely and safely destructure complex data structures and handle multiple cases. While Python introduced structural pattern matching in Python 3.10, Rust’s system is more deeply integrated and versatile, offering advanced features like destructuring, pattern guards, and exhaustive checking.
 
-In the next article, we’ll explore **Rust’s Memory Model** and compare it with Python’s garbage collection system, focusing on **Ownership and Borrowing**. Stay tuned!
+In the next article, we’ll explore **Macros in Rust**, focusing on practical `macro_rules!` patterns and when macros are the right abstraction.
 
 ### Running the Complete Rust Example
 

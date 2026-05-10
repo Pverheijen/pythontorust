@@ -1,39 +1,64 @@
 ---
-title: "001 - Learning Rust as a Pythonista: How to Create and Run a Rust File"
+title: "001 - Your First Rust Program"
 authors: ["Peter Verheijen"]
 date: 2024-09-26
-description: "In this guide, we walk through how to create and run a basic Rust file, comparing the process to Python. From installing Rust to compiling and running a simple program, this post covers the essential steps. We also introduce cargo, Rust’s build system, which is key for managing larger projects. If you're new to Rust, this tutorial will help you get started with the basics of compiling and executing Rust code."
+description: "Learn the Rust toolchain and cargo-first workflow to create, build, and run your first Rust program."
 tags: ["Rust", "Python", "Programming", "Tutorial", "Getting Started", "Compiling", "Rustc", "Cargo", "Hello World", "Beginner", "Software Development"]
 template: "page.html"
 ---
 
 ## How to Create and Run a Rust File
 
-If you're coming from Python, you're probably used to running `.py` files directly with the Python interpreter. In Rust, the process involves compiling your code first before running it. Let’s walk through how to create a simple Rust file and run it.
+If you're coming from Python, you're used to `python script.py`. In Rust, source code is compiled first, then executed.
 
-### Step 1: Install Rust
+## Why this matters for Python developers
 
-Before we begin, you’ll need to install Rust if you haven’t already. You can do this using the following command:
+- Rust has a build step, which catches many issues before runtime.
+- `cargo` is the standard workflow (project creation, build, run, test).
+- Learning this flow early makes every later lesson smoother.
 
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
+## Learning goals
 
-This will install `rustup`, Rust’s toolchain manager. After installation, make sure `rustc` (the Rust compiler) and `cargo` (Rust's build system) are properly installed by running:
+By the end of this lesson, you should be able to:
+
+- Install and verify the Rust toolchain.
+- Create and run a Rust project with `cargo`.
+- Understand when to use `cargo` vs `rustc`.
+
+## Concepts in 5 minutes
+
+- `rustup`: toolchain manager.
+- `cargo`: Rust package manager and build tool.
+- `rustc`: low-level compiler command (useful, but not daily default).
+
+## Step 1: Install and verify Rust
+
+Install via `rustup` and verify:
 
 ```bash
 rustc --version
 cargo --version
 ```
 
-## Step 2: Create a New Rust File
-In Rust, the source files usually end with the `.rs `extension. Let’s create a new file called `main.rs`:
+## Step 2: Cargo-first workflow (recommended)
 
 ```bash
-touch main.rs
+cargo new hello_rust
+cd hello_rust
+cargo run
 ```
 
-Now open the file in your favorite editor and add the following code:
+This creates project files and runs the default `src/main.rs`.
+
+Expected output includes:
+
+```
+Hello, world!
+```
+
+## Step 3: Edit and rerun
+
+Replace `src/main.rs` with:
 
 ```rust
 fn main() {
@@ -41,39 +66,40 @@ fn main() {
 }
 ```
 
-This is a simple Rust program that prints `"Hello, Rust!"` to the console. It’s equivalent to the classic "Hello, World!" example.
+Run again:
 
-## Step 3: Compile and Run the Rust Program
+```bash
+cargo run
+```
 
-Unlike Python, which runs scripts directly, Rust code must be compiled before execution. To compile the program, run the following command:
+## Optional: single-file compile with `rustc`
+
+Useful for quick experiments:
 
 ```bash
 rustc main.rs
 ```
 
-This will create an executable file (for example, `main` on Unix-based systems or `main.exe` on Windows). To run the program, execute the following:
+Run binary:
 
 ```bash
-./main   # On Unix-based systems (Linux/macOS)
-main.exe # On Windows
+./main      # Linux/macOS
+main.exe    # Windows (cmd/powershell)
 ```
 
-You should see the output:
+## Common first-run issues
 
-```
-Hello, Rust!
-```
+- **`cargo` not found**: reopen terminal after install, or ensure Rust is in PATH.
+- **Permission issues on Unix**: check shell profile setup from rustup installer.
+- **Wrong folder**: `cargo run` must be inside a project with `Cargo.toml`.
 
-## Using `cargo` for Larger Projects
+## Quick practice
 
-For more complex projects, Rust developers typically use `cargo`, Rust’s package manager and build system. It simplifies compiling and running Rust projects. To create a new project with `cargo`, use:
+1. Change output to `"Hello from Python to Rust!"` and run.
+2. Add a second `println!` line and run again.
 
-```bash
-cargo new my_project
-cd my_project
-cargo run
-```
+## Recap
 
-This sets up a basic project structure and runs the program for you, making it easier to manage larger Rust codebases.
+Use `cargo` as the default workflow. Reach for `rustc` only when you specifically want single-file compilation.
 
-Now that you know how to create and run a simple Rust program, you're ready to start experimenting with Rust code. In the next sections, we’ll dive deeper into Rust’s unique features, starting with Basic Syntax and Structuring.
+Next lesson: core syntax and structure.

@@ -1,13 +1,33 @@
 ---
-title: "002 - Learning Rust as a Pythonista: Basic Syntax and Structure"
+title: "002 - Basic Syntax and Structure"
 authors: ["Peter Verheijen"]
 date: 2024-09-27
-description: "In this article, we introduce Rust from a Pythonista's perspective, focusing on basic syntax and structure. Through comparisons between Python and Rust, we cover defining functions, variables, control flow, and loops, helping Python developers ease into Rust's stricter type system and memory management features. This is the first post in a series aimed at making Rust more approachable for Python developers."
+description: "Understand Rust syntax essentials for Python developers: functions, mutability, control flow, and loops."
 tags: ["Rust", "Python", "Programming", "Syntax", "Comparison", "Functions", "Variables", "Loops", "Control Flow", "Types", "Pythonista", "Beginners", "Software Development"]
 draft: false
+template: "page.html"
 ---
 
-Welcome to the first article in the series on learning Rust from a Pythonista’s perspective. In this post, we’ll dive into the fundamental syntax and structure of Rust, drawing comparisons to Python to ease the learning curve. This will help you get familiar with Rust's core language features by relating them to what you already know.
+Welcome to syntax essentials. This lesson compares the Rust basics you use every day with equivalent Python constructs.
+
+## Why this matters for Python developers
+
+You already know how to model logic. The main shift is Rust’s explicit typing and immutability-by-default.
+
+## Learning goals
+
+By the end of this lesson, you should be able to:
+
+- Write functions with explicit parameter and return types.
+- Use mutable/immutable bindings intentionally.
+- Read and write basic control flow (`if`, `for`, `while`).
+
+## Concepts in 5 minutes
+
+- `fn` defines functions.
+- `let` introduces bindings, immutable by default.
+- `if` is an expression in Rust.
+- Braces define blocks; indentation is stylistic, not semantic.
 
 ## 1. Defining Functions
 
@@ -28,7 +48,7 @@ fn add(x: i32, y: i32) -> i32 {
 
 In this Rust example, the types of `x` and `y` are explicitly declared as `i32`, which is a 32-bit integer, and the return type is also specified after the `->` symbol. Rust's strict type system ensures safety and performance at compile time, something Python typically handles dynamically at runtime.
 
-## Key Differences:
+## Key differences
 
 - **Type annotations**: Rust requires type annotations for both parameters and return types, whereas Python is dynamically typed and doesn't require explicit types.
 - **Return values**: In Rust, the return type is declared after the arrow (`->`). Additionally, Rust doesn’t use the `return` keyword if the last expression in the function is the return value. Python, on the other hand, always uses `return`.
@@ -49,7 +69,7 @@ let mut x = 10;
 x = x + 5;
 ```
 
-## Key Differences:
+## Key differences
 
 - **Immutability**: In Rust, variables are immutable by default for safety reasons, while in Python, variables can be reassigned freely.
 - **Explicit mutability**: Rust forces you to explicitly declare variables as mutable (`mut`) if you plan to change their values.
@@ -77,7 +97,7 @@ if x > 5 {
 }
 ```
 
-#### Key Differences:
+#### Key differences
 
 - **Parentheses**: In Rust, the condition doesn’t need parentheses (similar to Python), but it’s required to use curly braces `{}` around blocks of code.
 - **Block structure**: In Rust, control flow structures always require curly braces, while in Python, indentation is used to define blocks.
@@ -100,7 +120,7 @@ for i in 0..5 {
 }
 ```
 
-#### Key Differences:
+#### Key differences
 
 - **Ranges**: In Python, `range(5)` generates numbers from 0 to 4. In Rust, the range syntax `0..5` also generates values from 0 to 4. Rust’s range syntax is more flexible and can be inclusive (`0..=5` includes 5).
 - **Iteration over collections**: Both languages allow looping over collections, but Rust encourages use of its powerful iterator traits for more control over iteration.
@@ -127,7 +147,7 @@ while x < 5 {
 }
 ```
 
-#### Key Differences:
+#### Key differences
 
 - **Mutability**: In Rust, you must declare `i` as mutable (`mut`) if you plan to change its value, while Python doesn’t require such an explicit declaration.
 
@@ -153,7 +173,7 @@ let y = if x > 5 { 10 } else { 0 };
 - **Expressions**: In Rust, control structures like `if` can return values directly, making it more expressive in some cases compared to Python.
 - **No ternary operator**: Rust doesn’t have a ternary operator because `if` is already an expression.
 
-## 6. Rust's `main` Function
+## 6. Rust's `main` function
 
 In Rust, every standalone program requires a `main` function, much like a script in Python. However, Python doesn’t require this unless the script needs to be run in a specific context:
 
@@ -171,16 +191,10 @@ fn main() {
     println!("Hello, Rust!");
 }
 ```
-#### Key Differences:
+#### Key differences
 - **Entry point**: Rust programs must have a `main` function as an entry point, whereas Python scripts can be run without one. The `if __name__ == "__main__"` guard is a common idiom in Python but not necessary in Rust.
 
-## Conclusion
-
-The basics of Rust syntax and structure are not drastically different from Python, but Rust’s strict typing, immutability by default, and expression-based control flow may feel unfamiliar at first. Understanding these foundational differences will set you up for success as you dive deeper into Rust’s powerful features.
-
-In the next article, we’ll explore Rust’s memory management model, focusing on Ownership and Borrowing, which is quite different from Python’s garbage collection system. Stay tuned!
-
-## Running the Complete Rust Example
+## One runnable end-to-end example
 
 ```rust
 // 1. Defining Functions in Rust
@@ -227,20 +241,19 @@ fn main() {
 }
 ```
 
-### Explanation:
-- **Defining Functions:** The `add` function is defined and called with parameters `2` and `3`, returning their sum.
-- **Variables and Mutability:** A mutable variable `x` is modified and printed.
-- **Control Flow:** An `if` statement checks whether `x` is greater than 5 and prints the appropriate message.
-- **Loops:** A `for` loop prints numbers from `0` to `4`, and a `while` loop does the same for `y` from `0` to `4`.
-- **Returning Values from `if`:** The result of the `if` expression is stored in `z` and printed.
+## Common mistakes
 
-You can compile and run this Rust code to verify the output.
+- Forgetting type annotations in function signatures.
+- Forgetting `mut` when a value must change.
+- Using semicolons after expressions that should return values.
 
-### To run it:
-1. Create a file called `main.rs`.
-2. Copy this code into the file.
-3. Compile and run using the following commands:
-   ```bash
-   rustc main.rs
-   ./main
-    ```
+## Quick practice
+
+1. Write a function `multiply(x: i32, y: i32) -> i32` and call it.
+2. Create a loop that prints numbers `1..=3`.
+
+## Recap
+
+Rust syntax is familiar in spirit but stricter by design. The big wins are explicitness and compile-time guarantees.
+
+In the next lesson, we’ll cover ownership, borrowing, and lifetimes.

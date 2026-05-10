@@ -173,3 +173,5 @@ where
 ## Key takeaway
 
 Rust's abstractions are designed to stay expressive **and** compile down to efficient machine code. As a Python developer, the biggest shift is moving correctness and performance checks from runtime to compile time.
+
+Next lesson: [002 - Stack vs Heap, Moves, and Clones](/blog/memory-mastery/002-stack-vs-heap-moves-and-clones/).
