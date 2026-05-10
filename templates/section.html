@@ -8,23 +8,28 @@
 
 {% block content %}
     {{ macros::header(components=section.components, is_page=false) }}
-    <div class="container mb-16">
+    <div class="page-wrap">
         {% if section.pages %}
             <div class="my-8">
-                <div class="text-6xl lg:text-2xl bg-amber-100 text-slate-800
-                    dark:bg-indigo-900 dark:text-slate-300 p-2 w-max">
+                <div class="section-title">
                     Posts
                 </div>
-                <ul>
+                <ul class="mt-4 space-y-3">
                     {% for page in section.pages %}
-                        <li class="text-slate-900 hover:text-slate-600
-                            dark:text-slate-400 hover:dark:text-slate-300
-                            transition">
-                            <a class="flex my-12 lg:my-4 text-4xl lg:text-base" href="{{ page.permalink | safe }}">
-                                {{ page.title }}
-                                <div class="ml-2 hidden lg:inline">
+                        <li>
+                            <a class="list-link group" href="{{ page.permalink | safe }}">
+                                <span>
+                                    <span class="block">{{ page.title }}</span>
+                                    <span class="muted mt-1 block">
+                                        {% if page.date %}
+                                            {{ page.date | date(format="%Y-%m-%d") }} ·
+                                        {% endif %}
+                                        {{ page.reading_time }} min read
+                                    </span>
+                                </span>
+                                <span class="text-slate-500 group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-200" aria-hidden="true">
                                     <i class="las la-arrow-right"></i>
-                                </div>
+                                </span>
                             </a>
                         </li>
                     {% endfor %}
@@ -33,20 +38,18 @@
         {% endif %}
         {% if section.subsections %}
             <div class="my-8">
-                <div class="text-6xl lg:text-2xl bg-amber-100 dark:bg-indigo-900
-                    text-slate-800 dark:text-slate-300 p-2 w-max">
+                <div class="section-title">
                     Categories 
                 </div>
-                <ul>
+                <ul class="mt-4 space-y-3">
                     {% for sub in section.subsections %}
                         {% set sect = get_section(path=sub, metadata_only=true) %}
-                        <li class="text-slate-900 hover:text-slate-600
-                            dark:text-slate-400 hover:dark:text-slate-300 transition">
-                            <a class="flex my-12 lg:my-4 text-4xl lg:text-base" href="{{ sect.permalink }}">
-                                {{ sect.title }}
-                                <div class="ml-2 hidden lg:inline">
+                        <li>
+                            <a class="list-link group" href="{{ sect.permalink }}">
+                                <span>{{ sect.title }}</span>
+                                <span class="text-slate-500 group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-200" aria-hidden="true">
                                     <i class="las la-arrow-right"></i>
-                                </div>
+                                </span>
                             </a>
                         </li>
                     {% endfor %}

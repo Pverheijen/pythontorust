@@ -7,48 +7,45 @@
 {% endblock head_extend %}
 
 {% block content %}
-
-</div>
-
     {{ macros::header(components=page.components, is_page=true) }}
-    <div class="container mb-16">
-        <div class="mt-4 font-serif text-slate-600 dark:text-slate-500 text-4xl lg:text-base">
+    <article class="page-wrap">
+        <div class="mt-6 muted">
             {{ page.date | date(format="%Y-%m-%d") }}
         </div>
-        <h1 class="w-full mt-4 mb-8 font-serif text-8xl lg:text-4xl text-slate-900 dark:text-slate-300">
+        <h1 class="w-full mt-3 mb-6 font-serif text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-slate-100">
             {{ page.title }}
         </h1>
-        <div class="w-full border-t mb-8 border-slate-300 dark:border-slate-700"></div>
-        <div class="prose-boring">
+        <div class="w-full border-t mb-8 border-slate-200 dark:border-slate-700"></div>
+        <div class="prose-boring mx-auto">
             {{ page.content | safe }}
-                
-            <!-- Invitation Text -->
-            <h2 class="w-full mt-4 mb-8 font-serif text-2xl text-slate-900 dark:text-slate-300">
+
+            <h2 class="heading-2 mt-12 mb-4">
                 Join the Journey Ahead!
             </h2>
-            <p class="mb-8 text-base text-slate-700 dark:text-slate-400">
+            <p class="body-copy mb-5">
                 If you're eager to continue this learning journey and stay updated with the latest insights, consider subscribing. 
                 By joining our mailing list, you'll receive notifications about new articles, tips, and resources to help you seamlessly pick up Rust by leveraging your Python skills.
             </p>
 
-            <!-- Updated Subscription Form -->
-            <form name="subscribe" method="POST" data-netlify="true" class="mt-4">
-                <div class="mb-4">
-                    <label for="email" class="block font-serif font-bold text-slate-900 dark:text-slate-300 mb-2">
-                        <strong>Email</strong>
-                    </label>
-                    <input type="email" id="email" name="email" required class="w-full py-1 px-2 font-serif text-base text-slate-900 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500 dark:focus:ring-slate-400"/>
-                </div>
-                <div>
-                    <button type="submit" class="w-full mt-4 mb-8 font-serif text-2xl text-slate-900 dark:text-slate-300">
-                        <strong>Subscribe</strong>
-                        <i class="las la-arrow-right"></i>
-                    </button>
-                </div>
-            </form>
+            <div class="surface-card mb-10">
+                <form name="subscribe" method="POST" data-netlify="true" class="mt-1">
+                    <div class="mb-4">
+                        <label for="email" class="block font-sans text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                            Email
+                        </label>
+                        <input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com"/>
+                    </div>
+                    <div>
+                        <button type="submit" class="primary-button w-full justify-center sm:w-auto">
+                            Subscribe
+                            <i class="las la-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
 
-            <h2 class="w-full mt-4 mb-8 font-serif text-2xl text-slate-900 dark:text-slate-300">
-                Other articles in the series:
+            <h2 class="heading-2 mt-12 mb-4">
+                Other articles in the series
             </h2>
 
             {% if page.ancestors | length > 0 %}
@@ -57,13 +54,23 @@
             {% else %}
                 {% set parent_section = get_section(path="index.md") %}
             {% endif %}
-            
+
             {% set siblings = parent_section.pages | sort(attribute="date", direction="desc") %}
 
+            <ul class="m-0 list-none space-y-2 p-0">
             {% for sibling in siblings %}
                 {% if sibling != page %}
-                    <p><a href="{{ sibling.permalink }}">{{ sibling.title }}</a></p>
+                <li>
+                    <a class="list-link group" href="{{ sibling.permalink }}">
+                        <span>{{ sibling.title }}</span>
+                        <span class="text-slate-500 group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-200" aria-hidden="true">
+                            <i class="las la-arrow-right"></i>
+                        </span>
+                    </a>
+                </li>
                 {% endif %}
             {% endfor %}
+            </ul>
         </div>
+    </article>
 {% endblock content %}

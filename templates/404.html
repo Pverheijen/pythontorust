@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="h-screen w-screen flex flex-col items-center justify-center">
-        <div class="font-serif text-8xl text-slate-800 dark:text-slate-400">
+    <div class="min-h-screen flex flex-col items-center justify-center px-6">
+        <div class="font-serif text-6xl sm:text-7xl text-slate-800 dark:text-slate-200">
             404
         </div>
-        <div class="flex items-center gap-1 text-4xl text-slate-500">
-            <div class="p-2 hover:bg-slate-800 transition">
-                <a href="javascript:history.back()">
+        <p class="mt-2 body-copy text-center max-w-md">
+            The page you are looking for does not exist or has moved.
+        </p>
+        <div class="mt-4 flex items-center gap-2 text-xl text-slate-500">
+            <div>
+                <a class="icon-button" href="/blog" aria-label="Go to blog">
                     <i class="las la-arrow-left"></i>
                 </a>
             </div>
-            <div class="p-2 hover:bg-slate-800 transition">
-                <a href="/">
+            <div>
+                <a class="icon-button" href="/" aria-label="Go to homepage">
                     <i class="las la-home"></i>
                 </a>
             </div>
